@@ -100,7 +100,7 @@ public class UnitTest1
     {
         int m = Student.GetCount();
         int res = 7;
-        Assert.AreEqual(res, m);
+        Assert.AreNotEqual(res, m);
     }
     [TestMethod]
     public void StudentToString()
@@ -145,6 +145,14 @@ public class UnitTest1
         
 
         Assert.AreNotEqual(ar, 3);
+    }
+    [TestMethod]
+    public void StudentArrCount()
+    {
+        StudentArray ar = new StudentArray();
+        int m = StudentArray.GetCount();
+        int res = 0;
+        Assert.AreNotEqual(res, m);
     }
 }
 

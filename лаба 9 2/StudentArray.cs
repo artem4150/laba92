@@ -11,8 +11,10 @@ namespace лаба_9_2
 		{
 			get => studentarray.Length;
 		}
+        static int count = 0;
 
-		public void Show()
+        public static int GetCount() { return count; }
+        public void Show()
 		{
 			for (int i = 0; i < studentarray.Length; i++)
 			{
@@ -26,6 +28,7 @@ namespace лаба_9_2
             {
                 studentarray[i] = new Student(Functions.GenerateRandomString(),rnd.Next(50), rnd.Next(50));
             }
+            count++;
         }
         
 
@@ -37,7 +40,8 @@ namespace лаба_9_2
                 Console.WriteLine($"Введите имя, возраст, gpa - {i}  студента");
                 studentarray[i] = new Student(Functions.CheckIfWord(), Functions.Input(), Functions.InputDouble());
             }
-            
+            count++;
+
         }
 
         public StudentArray(StudentArray other)
@@ -45,6 +49,7 @@ namespace лаба_9_2
             this.studentarray = new Student[other.Length];
             for (int i = 0; i < other.Length; i++)
                 this.studentarray[i] = other.studentarray[i];
+            count++;
         }
 
         public Student this[int index]

@@ -144,7 +144,8 @@ internal class Program
                         student1.Show();
                         student2.Show();
                         Console.WriteLine(Student.GetCount());
-                        
+                        Console.WriteLine(StudentArray.GetCount());
+
                         break;
                     case 6:
                         Environment.Exit(0);
