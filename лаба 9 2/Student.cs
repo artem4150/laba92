@@ -6,7 +6,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace лаба_9_2
 {
-	internal class Student
+	public class Student
 	{
 
         
