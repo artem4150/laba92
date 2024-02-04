@@ -3,7 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace лаба_9_2
 {
-	class StudentArray
+	public class StudentArray
 	{
 		Student[] studentarray;
         static Random rnd = new Random();
@@ -27,16 +27,7 @@ namespace лаба_9_2
                 studentarray[i] = new Student(Functions.GenerateRandomString(),rnd.Next(50), rnd.Next(50));
             }
         }
-        //public Student[] StudentArrayManual(int length)
-        //{
-        //    studentarray = new Student[length];
-        //    for (int i = 0; i < length; i++)
-        //    {
-        //        Console.WriteLine($"Введите имя, возраст, gpa - {i}  студента");
-        //        studentarray[i] = new Student(Functions.CheckIfWord(), Functions.Input(), Functions.InputDouble());
-        //    }
-        //    return studentarray;
-        //}
+        
 
         public StudentArray(int length,bool m)
         {
