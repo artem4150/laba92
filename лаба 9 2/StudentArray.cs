@@ -77,29 +77,7 @@ namespace лаба_9_2
             studentarray = new Student[0];
         }
 
-        public static int FindOldestStudent(StudentArray students)
-        {
-            int maxAge = -1;
-            int index = -1;
-            bool found = false;
-
-            for (int i = 0; i < students.Length; i++)
-            {
-                if (students[i].Gpa > 8 && students[i].Age > maxAge)
-                {
-                    maxAge = students[i].Age;
-                    index = i;
-                    found = true;
-                }
-            }
-
-            if (!found)
-            {
-                return -1;
-            }
-
-            return index;
-        }
+       
         
     }
 }

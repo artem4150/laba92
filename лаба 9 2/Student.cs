@@ -62,7 +62,7 @@ namespace лаба_9_2
             set
             {
                 // Количество рублей не может быть меньше 0
-                if (value < 0)
+                if (value < 0 && value > 150)
                 {
                     Console.WriteLine("Error!");
                     age = 0;
@@ -77,7 +77,7 @@ namespace лаба_9_2
             set
             {
                 // Количество рублей не может быть меньше 0
-                if (value < 0)
+                if (value < 0 && value > 10)
                 {
                     Console.WriteLine("Error!");
                     gpa = 0;
@@ -142,14 +142,47 @@ namespace лаба_9_2
             result += Convert.ToString(gpa2) +" "+ name2;
             return result;
         }
+        static public string StudentComparison2(Student student1, Student student2)
+        {
+            string result = $"{student1.name} ";
+
+            if (student1.age > student2.age)
+                result += "старше ";
+            else if (student1.age == student2.age)
+                result += "ровесник ";
+            else
+                result += "младше ";
+
+            result += $"{student2.name}. {student1.gpa} {student1.name} ";
+
+            if (student1.gpa > student2.gpa)
+                result += "выше ";
+            else if (student1.gpa == student2.gpa)
+                result += "равен ";
+            else
+                result += "ниже ";
+
+            result += $"{student2.gpa} {student2.name}";
+
+            return result;
+        }
         public static Student operator ++(Student student)
         {
             Student Result = new Student();
             
-            Result.name = Functions.CapitalizeFirstLetter(student.GetName());
+            
             
             Result.Age = student.Age;
             Result.Age++;
+            return Result;
+        }
+        public static Student operator ~(Student student)
+        {
+            Student Result = new Student();
+
+            Result.name = Functions.CapitalizeFirstLetter(student.GetName());
+
+            
             return Result;
         }
         public static explicit operator int(Student s)
@@ -166,15 +199,16 @@ namespace лаба_9_2
             
             return s.Gpa < 6;
         }
-        public static Student operator +(int d, Student s)
+        public static Student operator -(int d, Student st)
         {
+            Student s = new Student(st);
             s.Gpa -=d;
             
             return s;
         }
-        public static Student operator +(string d, Student s)
+        public static Student operator %(string d, Student st)
         {
-
+            Student s = new Student(st);
             s.name = d;
             return s;
         }

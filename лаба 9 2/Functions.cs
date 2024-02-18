@@ -83,7 +83,7 @@ namespace лаба_9_2
         static public int GenerateRandomInt()
         {
             Random random = new Random();
-            int n = random.Next();
+            int n = random.Next(150);
             return n;
 
         }
@@ -91,7 +91,7 @@ namespace лаба_9_2
         static public double GenerateRandomDouble()
         {
             Random random = new Random();
-            double n = random.Next();
+            double n = random.Next(10);
             return n;
 
         }

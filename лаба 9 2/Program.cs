@@ -78,18 +78,18 @@ internal class Program
                                         {
                                             case 1: //унарные
                                                 Console.WriteLine("Для первого студента");
-                                                Student student4 =  Functions.CheckIfWord()+ student1;
+                                                Student student4 =  Functions.CheckIfWord() % student1;
                                                 student4.Show();
                                                 Console.WriteLine("Для второго студента");
-                                                Student student5 = Functions.CheckIfWord() + student2;
+                                                Student student5 = Functions.CheckIfWord() % student2;
                                                 student5.Show();
                                                 break;
                                             case 2://Операции приведения типа
                                                 Console.WriteLine("Для первого студента");
-                                                Student student3 = Functions.Input() + student1;
+                                                Student student3 = Functions.Input() - student1;
                                                 student3.Show();
                                                 Console.WriteLine("Для второго студента");
-                                                Student student6 = Functions.Input() + student2;
+                                                Student student6 = Functions.Input() - student2;
                                                 student6.Show();
                                                 break;
                                             
@@ -161,7 +161,9 @@ internal class Program
             {
                 Functions functions = new Functions(); 
                 string result = student1.StudentComparison(student1, student2);
+                string result1 = Student.StudentComparison2(student1, student2);
                 Console.WriteLine(result);
+                Console.WriteLine(result1);
             }
             
             void ImputData()
@@ -189,16 +191,19 @@ internal class Program
 
             void Task2()
             {
-                
-                
                 student1++;
                 student2++;
+
+                Student student3 = ~student1;
+                Student student4 = ~student2;
+                
+                
                 Console.WriteLine("1 студент");
-                Console.WriteLine("Имя: " +student1.GetName());
-                Console.WriteLine("Возраст: " +student1.GetAge()+"\n");
+                Console.WriteLine("Имя: " +student3.GetName());
+                Console.WriteLine("Возраст: " +student3.GetAge()+"\n");
                 Console.WriteLine("2 студент");
-                Console.WriteLine("Имя: "+student2.GetName());
-                Console.WriteLine("Возраст: " + student2.GetAge());
+                Console.WriteLine("Имя: "+student4.GetName());
+                Console.WriteLine("Возраст: " + student4.GetAge());
 
             }
             void Task22()
@@ -218,7 +223,29 @@ internal class Program
                 else { Console.WriteLine("оценки не удовлетворительны"); }
 
             }
+            static int FindOldestStudent(StudentArray students)
+            {
+                int maxAge = -1;
+                int index = -1;
+                bool found = false;
 
+                for (int i = 0; i < students.Length; i++)
+                {
+                    if (students[i].Gpa > 8 && students[i].Age > maxAge)
+                    {
+                        maxAge = students[i].Age;
+                        index = i;
+                        found = true;
+                    }
+                }
+
+                if (!found)
+                {
+                    return -1;
+                }
+
+                return index;
+            }
             void Task31()
             {
                 Console.WriteLine("1 коллекция");
@@ -243,7 +270,7 @@ internal class Program
                     Console.WriteLine(e.Message);
 
                 }
-                int index = StudentArray.FindOldestStudent(s1);
+                int index = FindOldestStudent(s1);
 
                 if (index != -1)
                 {
@@ -280,7 +307,7 @@ internal class Program
                     Console.WriteLine(e.Message);
 
                 }
-                int index = StudentArray.FindOldestStudent(s1);
+                int index = FindOldestStudent(s1);
 
                 if (index != -1)
                 {
